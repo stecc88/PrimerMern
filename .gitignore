@@ -1,0 +1,71 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds
+dist/
+build/
+dist-ssr/
+*.tsbuildinfo
+
+
+# Variables de entorno
+.env
+*.local
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+logs/
+*.log
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Archivos del sistema operativo
+.DS_Store
+ehthumbs.db
+Thumbs.db
+.Spotlight-V100
+.Trashes
+._*
+.DS_Store?
+
+# Adiciones específicas para MERN
+# Archivos de caché de Vite (frontend)
+.vite/
+
+# Archivos de caché de npm/yarn
+.cache/
+.eslintcache
+.prettiercache
+
+# Archivos de configuración sensibles
+.env.backup
+.env.*
+
+# Directorios de base de datos local (si usas MongoDB local)
+data/
+db/
+
+# Archivos de despliegue (si usas Docker, etc.)
+.dockerignore
+
+# Archivos de despliegue en la nube
+.vercel

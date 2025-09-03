@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fondo general con gradiente dinámico */
+body {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #F59E0B 100%);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #f3f4f6; /* Gris muy claro */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* Texto con degradado naranja-violeta */
+.gradient-text {
+  background: linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+
+
+/* Animación flotante para darle vida */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+
+/* Inputs y botones personalizados */
+input, button {
+  font-family: 'Inter', sans-serif;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #F59E0B;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
