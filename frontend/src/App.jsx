@@ -3,7 +3,7 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskFilters from "./components/TaskFilters";
 
-const BACKEND_URL = import.meta.env.VITE_API_URL; // ← desde .env
+const API_URL = import.meta.env.VITE_API_URL; // ejemplo: https://tu-backend.onrender.com/api/tasks
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -17,7 +17,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch(BACKEND_URL);
+      const response = await fetch(`${API_URL}/tasks`);
       const data = await response.json();
       setTasks(data);
     } catch (err) {
@@ -30,7 +30,7 @@ function App() {
 
   const addTask = async (text) => {
     try {
-      const response = await fetch(BACKEND_URL, {
+      const response = await fetch(`${API_URL}/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text })
@@ -44,7 +44,7 @@ function App() {
 
   const deleteTask = async (id) => {
     try {
-      await fetch(`${BACKEND_URL}/${id}`, { method: 'DELETE' });
+      await fetch(`${API_URL}/tasks/${id}`, { method: 'DELETE' });
       setTasks(tasks.filter(task => task._id !== id));
     } catch (err) {
       console.error('Error al eliminar tarea:', err);
@@ -54,7 +54,7 @@ function App() {
   const toggleTask = async (id) => {
     try {
       const task = tasks.find(t => t._id === id);
-      const response = await fetch(`${BACKEND_URL}/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !task.completed })
@@ -68,7 +68,7 @@ function App() {
 
   const editTask = async (id, newText) => {
     try {
-      const response = await fetch(`${BACKEND_URL}/${id}`, {
+      const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: newText })
